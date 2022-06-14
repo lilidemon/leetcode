@@ -3,11 +3,8 @@
 - All 26 letters of the English alphabet exist on the keypad.
 - Each letter is mapped to exactly one button.
 - A button has at most 3 letters mapped to it.
-
 >The keypad click count is defined as the number of button presses required to print a given string. In order to send message faster, customers tend to set the keypad design in such a way that the keypad click count is minimized while maintaining its validity.
-
 >Given a string text consisting of lowercase English letters only, find the minimum keypad click count.
-
 >Example: text = "abacadefghibj"
 
 ### Idea: 
@@ -17,7 +14,7 @@
 >HashMap/Array(count the prequency of each character) + sort HashMap by value(Collections.sort/PriorityQueue/Arrays.sort)
 
 ### Knowledge related
-#### 1. Map sort by value
+>#### 1. Map sort by value
 ```java
 List<Map.Entry<String,String>> list = new ArrayList<>(map.entrySet());  
 Collections.sort(list, new Comparator<Map.Entry<String,String>>() {  
@@ -26,7 +23,6 @@ Collections.sort(list, new Comparator<Map.Entry<String,String>>() {
     }   
 });  
 ```
-
 #### 2. TreeMap(default: sort by key in increasing order)  
 ```java
 //sort by key in decreasing order  
@@ -89,7 +85,7 @@ public int minCount(String s) {
     return res;  
 }  
 ```
-### Algorithm 3: Array + Arrays.sort + String/StringBuffer
+### Algorithm 3: Array + Arrays.sort
 ```java
 public int minCount(String s) {
     int[][] freq = new int[128][2];
