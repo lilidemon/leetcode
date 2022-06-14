@@ -1,11 +1,11 @@
 ### Description:
->This keypad can be connected to any electronic device and has 9 buttons, where each button can have up to 3 lowercase English letters. The buyer has the freedom to choose which letters to place on a button while ensuring that the arrangement is valid. A key design is said to be valid if :
-- All 26 letters of the English alphabet exist on the keypad.
-- Each letter is mapped to exactly one button.
-- A button has at most 3 letters mapped to it.
->The keypad click count is defined as the number of button presses required to print a given string. In order to send message faster, customers tend to set the keypad design in such a way that the keypad click count is minimized while maintaining its validity.
->Given a string text consisting of lowercase English letters only, find the minimum keypad click count.
->Example: text = "abacadefghibj"
+>This keypad can be connected to any electronic device and has 9 buttons, where each button can have up to 3 lowercase English letters. The buyer has the freedom to choose which letters to place on a button while ensuring that the arrangement is valid. A key design is said to be valid if :  
+>- All 26 letters of the English alphabet exist on the keypad.
+>- Each letter is mapped to exactly one button.
+>- A button has at most 3 letters mapped to it.
+>The keypad click count is defined as the number of button presses required to print a given string. In order to send message faster, customers tend to set the keypad design in such a way that the keypad click count is minimized while maintaining its validity.  
+Given a string text consisting of lowercase English letters only, find the minimum keypad click count.  
+Example: text = "abacadefghibj"
 
 ### Idea: 
 >Count the prequency of each Character, sort Character by prequency in decresing order, put the Character with higher frequency in the first position of 9 numbers as possible
@@ -23,7 +23,7 @@ Collections.sort(list, new Comparator<Map.Entry<String,String>>() {
     }   
 });  
 ```
-#### 2. TreeMap(default: sort by key in increasing order)  
+>#### 2. TreeMap(default: sort by key in increasing order)  
 ```java
 //sort by key in decreasing order  
 Map<String, String> map = new TreeMap<String, String>(new Comparator<String>() {  
@@ -32,7 +32,7 @@ Map<String, String> map = new TreeMap<String, String>(new Comparator<String>() {
     }  
 });  
 ```
-#### 3. Improve efficiency
+>#### 3. Improve efficiency
 StringBuffer is way more faster than String  
 String: 2789ms  StringBuffer: 32ms
 
