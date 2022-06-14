@@ -38,7 +38,7 @@ Map<String, String> map = new TreeMap<String, String>(new Comparator<String>() {
 #### leetcode 451. Sort Characters By Frequency (https://leetcode.com/problems/sort-characters-by-frequency/)
 
 ### Algorithm 1: HashMap sorted by value
-
+```java
 public int minCount(String s) {  
     Map<Character, Integer> map = new HashMap<>();  
     for (char c : s.toCharArray()) {  
@@ -57,9 +57,9 @@ public int minCount(String s) {
     }  
     return res;  
 }
-
+```
 ### Algorithm 1: HashMap + PriorityQueue
-
+```java
 public int minCount(String s) {  
     Map<Character, Integer> map = new HashMap<>();  
     for (char c : s.toCharArray()) {  
@@ -83,3 +83,4 @@ public int minCount(String s) {
     }  
     return res;  
 }  
+```
