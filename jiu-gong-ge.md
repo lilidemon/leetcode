@@ -33,8 +33,10 @@ Map<String, String> map = new TreeMap<String, String>(new Comparator<String>() {
 });  
 ```
 >#### 3. Improve efficiency
+```
 StringBuffer is way more faster than String  
 String: 2789ms  StringBuffer: 32ms
+```
 
 ### [leetcode 451. Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)
 
