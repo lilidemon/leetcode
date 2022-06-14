@@ -17,7 +17,7 @@ Count the prequency of each Character, sort Character by prequency in decresing 
 HashMap/Array(count the prequency of each character) + sort HashMap by value(Collections.sort/PriorityQueue/Arrays.sort)
 
 ### Knowledge related
-#### Map sort by value
+#### 1. Map sort by value
 ```java
 List<Map.Entry<String,String>> list = new ArrayList<>(map.entrySet());  
 Collections.sort(list, new Comparator<Map.Entry<String,String>>() {  
@@ -27,7 +27,7 @@ Collections.sort(list, new Comparator<Map.Entry<String,String>>() {
 });  
 ```
 
-#### TreeMap(default: sort by key in increasing order)  
+#### 2. TreeMap(default: sort by key in increasing order)  
 ```java
 //sort by key in decreasing order  
 Map<String, String> map = new TreeMap<String, String>(new Comparator<String>() {  
@@ -36,7 +36,7 @@ Map<String, String> map = new TreeMap<String, String>(new Comparator<String>() {
     }  
 });  
 ```
-#### Improve efficiency
+#### 3. Improve efficiency
 StringBuffer is way more faster than String  
 String: 2789ms  StringBuffer: 32ms
 
