@@ -13,7 +13,9 @@ Example: text = "abacadefghibj"
 ### Data Structure: 
 >HashMap/Array(count the prequency of each character) + sort HashMap by value(Collections.sort/PriorityQueue/Arrays.sort)
 
-### Knowledge related
+```diff
++ ### Knowledge related
+```
 >#### 1. Map sort by value
 ```java
 List<Map.Entry<String,String>> list = new ArrayList<>(map.entrySet());  
