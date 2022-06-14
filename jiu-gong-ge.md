@@ -8,36 +8,41 @@ The keypad click count is defined as the number of button presses required to pr
 
 Given a string text consisting of lowercase English letters only, find the minimum keypad click count.
 
-#### Example: 
-text = "abacadefghibj"
+Example: text = "abacadefghibj"
 
-给一串字符，"abcdefgabc"，然后用手机九宫格打出。手机九宫格可以是任何字母组合，唯一要求是每个键至少有两个字母，最多三个字母。换句话说，这里的键位不一定是我们常见的2=abc，3=def等等，可以是1=agq，2=bhj...任何顺序都可以。要求找出能打出输入字符串的最少按键次数。
-————————————————
-#### 思路: 
-统计各字母频数,按频数排序,尽量把频数高的字母放在9个数字的第一个位置
+### Idea: 
+Count the prequency of each Character, sort Character by prequency in decresing order, put the Character with higher frequency in the first position of 9 numbers as possible
 
-#### 数据结构: 
-哈希表/数组(统计频数) + 哈希表值排序/优先队列
+### Data Structure: 
+HashMap/Array(count the prequency of each character) + sort HashMap by value(Collections.sort/PriorityQueue/Arrays.sort)
 
+### Knowledge related
 #### Map sort by value
+```java
 List<Map.Entry<String,String>> list = new ArrayList<>(map.entrySet());  
 Collections.sort(list, new Comparator<Map.Entry<String,String>>() {  
     public int compare(Map.Entry<String, String> o1, Map.Entry<String, String> o2) {  
         return o1.getValue().compareTo(o2.getValue());  
     }   
 });  
+```
 
 #### TreeMap(default: sort by key in increasing order)  
+```java
 //sort by key in decreasing order  
 Map<String, String> map = new TreeMap<String, String>(new Comparator<String>() {  
     public int compare(String obj1, String obj2) {  
         return obj2.compareTo(obj1);  
     }  
 });  
+```
+#### Improve efficiency
+StringBuffer is way more faster than String  
+String: 2789ms  StringBuffer: 32ms
 
-#### leetcode 451. Sort Characters By Frequency (https://leetcode.com/problems/sort-characters-by-frequency/)
+### [leetcode 451. Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)
 
-### Algorithm 1: HashMap sorted by value
+### Algorithm 1: HashMap + Collections.sort
 ```java
 public int minCount(String s) {  
     Map<Character, Integer> map = new HashMap<>();  
@@ -58,7 +63,7 @@ public int minCount(String s) {
     return res;  
 }
 ```
-### Algorithm 1: HashMap + PriorityQueue
+### Algorithm 2: HashMap + PriorityQueue
 ```java
 public int minCount(String s) {  
     Map<Character, Integer> map = new HashMap<>();  
@@ -83,4 +88,27 @@ public int minCount(String s) {
     }  
     return res;  
 }  
+```
+### Algorithm 3: Array + Arrays.sort + String/StringBuffer
+```java
+public int minCount(String s) {
+    int[][] freq = new int[128][2];
+    char[] arr = s.toCharArray();
+    for (int i = 0; i < 128; i++) {
+        freq[i][0] = i;
+    }
+    for (char c : arr) {
+        freq[c][1]++;
+    }
+    Arrays.sort(freq, (a, b) -> {
+        if (a[1] != b[1]) return b[1] - a[1];
+        else return a[0] - b[0];
+    });
+    int res = 0;                       
+    for (int i = 0; i < 128; i++) {    
+        int k = freq[i][1];            
+        res += (i / 9 + 1) * k;        
+    }
+    return res;
+}
 ```
